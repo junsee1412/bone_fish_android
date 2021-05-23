@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tabProduct"
+        android:title="Product"
+        android:icon="@drawable/icons8_product_100"/>
+<!--    <item-->
+<!--        android:id="@+id/tabBrand"-->
+<!--        android:title="Brand"-->
+<!--        android:icon="@drawable/icons8_shopping_bag_100"/>-->
+    <item
+        android:id="@+id/tabCategory"
+        android:title="Category"
+        android:icon="@drawable/icons8_categorize_100"/>
+    <item
+        android:id="@+id/tabBill"
+        android:title="Bill"
+        android:icon="@drawable/icons8_check_100"/>
+    <item
+        android:id="@+id/tabUser"
+        android:title="User"
+        android:icon="@drawable/icons8_user_location_100"/>
+</menu>
