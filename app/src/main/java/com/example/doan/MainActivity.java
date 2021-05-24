@@ -20,14 +20,15 @@ public class MainActivity extends AppCompatActivity {
     ViewPagerAdapter pagerAdapter;
     ViewPager2 viewPager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         navigationView = findViewById(R.id.bottomNavigationView);
-        viewPager = findViewById(R.id.viewPager);
         navigationView.setItemIconTintList(null);
+        viewPager = findViewById(R.id.viewPager);
 
         pagerAdapter = new ViewPagerAdapter(this);
 

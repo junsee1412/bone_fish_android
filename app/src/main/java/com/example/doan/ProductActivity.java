@@ -67,6 +67,13 @@ public class ProductActivity extends AppCompatActivity {
         back.setOnClickListener(v -> finish());
         addcart.setOnClickListener(v -> addToCard());
         delete.setOnClickListener(v -> delProduct());
+        edit.setOnClickListener(v -> editProduct());
+    }
+
+    private void editProduct() {
+        Intent intent = new Intent(ProductActivity.this, MainActivity.class);
+        ProductActivity.this.startActivity(intent);
+        finish();
     }
 
     private void addToCard() {

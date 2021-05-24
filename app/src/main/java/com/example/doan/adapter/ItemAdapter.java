@@ -1,16 +1,20 @@
 package com.example.doan.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doan.R;
+import com.example.doan.common.sqlite;
 import com.example.doan.model.itemBill;
 import com.squareup.picasso.Picasso;
 
@@ -41,7 +45,28 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
         holder.quantity.setText("("+String.valueOf(item.getQuantity())+")");
         holder.price.setText(String.valueOf(item.getPrice()));
         Picasso.get().load("http://192.168.1.23:3000"+item.getImage()).into(holder.imageBill);
-//        holder.
+        holder.option.setOnClickListener(v -> {
+            sqlite db = new sqlite(context, "bone_fish.sqlite", null, 1);
+            PopupMenu popupMenu = new PopupMenu(context, v);
+            popupMenu.inflate(R.menu.menu_popup);
+            popupMenu.setOnMenuItemClickListener(item1 -> {
+                switch (item1.getItemId()) {
+                    case R.id.item_Edit:
+                        //handle menu1 click
+                        Log.d("run", "Edit "+item.getId_product());
+                        return true;
+                    case R.id.item_Remove:
+                        //handle menu2 click
+                        Log.d("run", "Remove "+item.getId_product());
+                        db.QueryData("DELETE FROM bill WHERE id_product='"+item.getId_product()+"'");
+                        RemoveItem(position);
+                        return true;
+                    default:
+                        return false;
+                }
+            });
+            popupMenu.show();
+        });
     }
 
     @Override
@@ -63,5 +88,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
             price = itemView.findViewById(R.id.priceItemBill);
             quantity = itemView.findViewById(R.id.qtyBill);
         }
+    }
+    public void RemoveItem(int p){
+        bills.remove(p);
+        notifyDataSetChanged();
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF9E80"
+    android:background="#FFEAA4"
     tools:context=".tabforMain.tabProduct">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,9 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="32dp"
-            android:backgroundTint="#FFFF8D"
+            android:backgroundTint="#40C4FF"
             app:cardCornerRadius="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,8 @@
                 android:id="@+id/search_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxWidth="360dp" />
+                android:maxWidth="360dp"
+                android:textColor="#D703082B" />
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -57,17 +58,13 @@
         android:id="@+id/bra_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topPanel"
         app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_brand"/>
+        tools:listitem="@layout/item_brand" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

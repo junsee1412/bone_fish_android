@@ -9,14 +9,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#40C4FF">
 
         <ImageView
             android:id="@+id/imgProduct"
             android:layout_width="190dp"
             android:layout_height="240dp"
             android:layout_marginBottom="8dp"
-            android:background="#ECC780"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_fish_bones_round"
             app:layout_constraintBottom_toTopOf="@+id/product"
@@ -31,9 +31,9 @@
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="24dp"
             android:text="Product"
-            android:textColor="@color/cardview_dark_background"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="#D703082B"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -44,7 +44,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginBottom="8dp"
             android:text="$ "
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="#D703082B"
             android:textSize="12dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/quantity"
@@ -57,7 +57,7 @@
             android:layout_height="0dp"
             android:layout_marginBottom="1dp"
             android:text="100"
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="#D703082B"
             android:textSize="12dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/price"
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="In Stock: "
-            android:textColor="@color/cardview_dark_background"
+            android:textColor="#D703082B"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/quantity_num"
             app:layout_constraintEnd_toStartOf="@+id/quantity_num"
