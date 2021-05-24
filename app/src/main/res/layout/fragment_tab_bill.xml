@@ -50,9 +50,9 @@
             android:id="@+id/list_item_bill"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="24dp"
             tools:listitem="@layout/item_bill" />
 
     </RelativeLayout>

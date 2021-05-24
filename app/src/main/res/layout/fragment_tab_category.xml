@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".tabforMain.tabCategory">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cat_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_category"/>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/cat_recycler"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:listitem="@layout/item_category"/>-->
 
 </FrameLayout>

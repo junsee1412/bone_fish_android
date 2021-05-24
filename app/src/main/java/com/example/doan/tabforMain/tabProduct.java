@@ -15,10 +15,13 @@ import android.widget.SearchView;
 
 import com.example.doan.R;
 import com.example.doan.adapter.BrandAdapter;
+import com.example.doan.adapter.CategoryAdapter;
 import com.example.doan.api.apiBrand;
+import com.example.doan.api.apiCategory;
 import com.example.doan.common.Service;
 import com.example.doan.api.apiProduct;
 import com.example.doan.model.Brand;
+import com.example.doan.model.Category;
 import com.example.doan.model.Product;
 import com.example.doan.model.productInBrand;
 
@@ -34,12 +37,16 @@ public class tabProduct extends Fragment {
     Service service;
     apiProduct servicePro = service.retrofit.create(apiProduct.class);
     apiBrand serviceBra = service.retrofit.create(apiBrand.class);
+    apiCategory serviceCate = service.retrofit.create(apiCategory.class);
 
     private List<Product> productList;
     private List<Brand> brandList;
+    private List<Category> categoryList;
     private List<productInBrand> inBrandList;
     private RecyclerView brandRecyclerView;
     private BrandAdapter brandAdapter;
+    private RecyclerView categoryRecyclerView;
+    private CategoryAdapter adapterCategory;
     private View view;
     private Context context;
     private String token;
@@ -67,6 +74,7 @@ public class tabProduct extends Fragment {
             token = bundle.getString("token");
             getProduct(token);
             getBrand(token);
+            getListCategory(token);
         }
         return view;
     }
@@ -74,6 +82,7 @@ public class tabProduct extends Fragment {
     private void intUI() {
 
         brandRecyclerView = view.findViewById(R.id.bra_recycler);
+        categoryRecyclerView = view.findViewById(R.id.cate_recy);
         searchView = view.findViewById(R.id.search_bar);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -123,6 +132,22 @@ public class tabProduct extends Fragment {
         });
     }
 
+    private void getListCategory(String token) {
+        serviceCate.getlsCategory(token).enqueue(new Callback<List<Category>>() {
+            @Override
+            public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
+                if (response.isSuccessful()) {
+                    categoryList = response.body();
+                    setCategoryRecyclerView(categoryList);
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Category>> call, Throwable t) {
+                Log.d("error:", "Error");
+            }
+        });
+    }
+
     private void checkList() {
         if (productList!=null && brandList!=null){
             Log.d("runrun","okela");
@@ -157,10 +182,12 @@ public class tabProduct extends Fragment {
                 String brandID = brand.get_id();
                 String brandName = brand.getBrand();
                 List<Product> products = new ArrayList<>();
+
                 for (Product product: productList) {
                     String brandID_Pr = product.getId_brand();
                     String categoryID_Pr = product.getId_category();
                     String productName = product.getProduct();
+
                     if (brandID_Pr.equals(brandID) && productName.toLowerCase().contains(text.toLowerCase()) && i==1){
                         products.add(product);
                     } else if (brandID_Pr.equals(brandID) && categoryID_Pr.equals(text) && i==2) {
@@ -182,5 +209,13 @@ public class tabProduct extends Fragment {
         brandAdapter = new BrandAdapter();
         brandAdapter.setInBrandList(context,list);
         brandRecyclerView.setAdapter(brandAdapter);
+    }
+
+    private void setCategoryRecyclerView(List<Category> list) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        categoryRecyclerView.setLayoutManager(layoutManager);
+        adapterCategory = new CategoryAdapter();
+        adapterCategory.setCategoryList(list);
+        categoryRecyclerView.setAdapter(adapterCategory);
     }
 }

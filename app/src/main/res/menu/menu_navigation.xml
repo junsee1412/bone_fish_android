@@ -10,10 +10,10 @@
 <!--        android:id="@+id/tabBrand"-->
 <!--        android:title="Brand"-->
 <!--        android:icon="@drawable/icons8_shopping_bag_100"/>-->
-    <item
-        android:id="@+id/tabCategory"
-        android:title="Category"
-        android:icon="@drawable/icons8_categorize_100"/>
+<!--    <item-->
+<!--        android:id="@+id/tabCategory"-->
+<!--        android:title="Category"-->
+<!--        android:icon="@drawable/icons8_categorize_100"/>-->
     <item
         android:id="@+id/tabBill"
         android:title="Bill"

@@ -48,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         navigationView.getMenu().findItem(R.id.tabProduct).setChecked(true);
                         break;
+//                    case 1:
+//                        navigationView.getMenu().findItem(R.id.tabCategory).setChecked(true);
+//                        break;
                     case 1:
-                        navigationView.getMenu().findItem(R.id.tabCategory).setChecked(true);
-                        break;
-                    case 2:
                         navigationView.getMenu().findItem(R.id.tabBill).setChecked(true);
                         break;
-                    case 3:
+                    case 2:
                         navigationView.getMenu().findItem(R.id.tabUser).setChecked(true);
                         break;
                 }
@@ -66,14 +66,14 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.tabProduct:
                     viewPager.setCurrentItem(0);
                     break;
-                case R.id.tabCategory:
+//                case R.id.tabCategory:
+//                    viewPager.setCurrentItem(1);
+//                    break;
+                case R.id.tabBill:
                     viewPager.setCurrentItem(1);
                     break;
-                case R.id.tabBill:
-                    viewPager.setCurrentItem(2);
-                    break;
                 case R.id.tabUser:
-                    viewPager.setCurrentItem(3);
+                    viewPager.setCurrentItem(2);
                     break;
             }
             return true;

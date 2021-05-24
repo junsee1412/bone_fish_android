@@ -63,7 +63,7 @@ public class tabCategory extends Fragment {
     }
 
     private void intUI() {
-        categoryRecyclerView = view.findViewById(R.id.cat_recycler);
+//        categoryRecyclerView = view.findViewById(R.id.cat_recycler);
     }
 
     private void getListCategory(String token) {
@@ -72,7 +72,7 @@ public class tabCategory extends Fragment {
             public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
                 if (response.isSuccessful()) {
                     categoryList = response.body();
-                    setCategoryRecyclerView(categoryList);
+//                    setCategoryRecyclerView(categoryList);
                 }
             }
 

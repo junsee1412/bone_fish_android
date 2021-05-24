@@ -43,12 +43,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public static class CategoryHolder extends RecyclerView.ViewHolder {
 
-        ImageView more;
         TextView category;
 
         public CategoryHolder(View itemView) {
             super(itemView);
-            more = itemView.findViewById(R.id.item_Category_more);
             category = itemView.findViewById(R.id.item_Category);
         }
     }

@@ -39,17 +39,17 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 tabProduct.setArguments(bundle);
 
                 return tabProduct;
+//            case 1:
+//                tabCategory tabCategory = new tabCategory();
+//                tabCategory.setArguments(bundle);
+//
+//                return tabCategory;
             case 1:
-                tabCategory tabCategory = new tabCategory();
-                tabCategory.setArguments(bundle);
-
-                return tabCategory;
-            case 2:
                 tabBill tabBill = new tabBill();
                 tabBill.setArguments(bundle);
 
                 return tabBill;
-            case 3:
+            case 2:
                 tabUser tabUser = new tabUser();
                 tabUser.setArguments(bundle);
 
