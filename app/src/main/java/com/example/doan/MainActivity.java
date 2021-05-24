@@ -3,21 +3,13 @@ package com.example.doan;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.example.doan.adapter.ViewPagerAdapter;
-import com.example.doan.inter.Service;
-import com.example.doan.api.apiBrand;
-import com.example.doan.api.apiCategory;
-import com.example.doan.api.apiProduct;
-import com.example.doan.inter.sqlite;
-import com.example.doan.model.Product;
+import com.example.doan.common.sqlite;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     String token;

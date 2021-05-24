@@ -11,8 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doan.api.apiUser;
-import com.example.doan.inter.Service;
-import com.example.doan.inter.sqlite;
+import com.example.doan.common.Service;
+import com.example.doan.common.sqlite;
 import com.example.doan.model.User;
 
 import retrofit2.Call;
@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         registerBtn = findViewById(R.id.login_btn_register);
         loginBtn = findViewById(R.id.login_btn_login);
@@ -89,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
     private void toMainActivity(String token) {
         Intent intent = new Intent(this, MainActivity.class);
         db.QueryData("DELETE FROM token");
+        db.QueryData("DELETE FROM bill");
         db.QueryData("INSERT INTO token VALUES(null,'"+token+"')");
         startActivity(intent);
     }

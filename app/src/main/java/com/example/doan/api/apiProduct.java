@@ -10,6 +10,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -45,7 +46,8 @@ public interface apiProduct {
     Call<Product> getProduct(@Path("token") String token, @Path("id") String id);
 
     //delete Product
+//    @DELETE("/api/product")
     @FormUrlEncoded
-    @DELETE("/api/product")
-    Call<Product> delProduct(@Field("token") String token, @Field("id") String id);
+    @HTTP(method = "DELETE", path = "/api/product", hasBody = true)
+    Call<Product> delProduct(@Field("token") String token, @Field("idproduct") String id);
 }

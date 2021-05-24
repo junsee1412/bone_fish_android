@@ -6,19 +6,12 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.doan.inter.sendToProduct;
-import com.example.doan.model.Product;
 import com.example.doan.tabforMain.tabBill;
 import com.example.doan.tabforMain.tabCategory;
 import com.example.doan.tabforMain.tabProduct;
 import com.example.doan.tabforMain.tabUser;
-import com.google.gson.Gson;
-
-import java.util.List;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
@@ -52,9 +45,15 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
                 return tabCategory;
             case 2:
-                return new tabBill();
+                tabBill tabBill = new tabBill();
+                tabBill.setArguments(bundle);
+
+                return tabBill;
             case 3:
-                return new tabUser();
+                tabUser tabUser = new tabUser();
+                tabUser.setArguments(bundle);
+
+                return tabUser;
             default:
                 return new  tabProduct();
         }

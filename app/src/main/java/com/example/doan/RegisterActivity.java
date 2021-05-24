@@ -11,8 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doan.api.apiUser;
-import com.example.doan.inter.Service;
-import com.example.doan.inter.sqlite;
+import com.example.doan.common.Service;
+import com.example.doan.common.sqlite;
 import com.example.doan.model.User;
 
 import retrofit2.Call;

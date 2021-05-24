@@ -12,12 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.example.doan.R;
 import com.example.doan.adapter.BrandAdapter;
 import com.example.doan.api.apiBrand;
-import com.example.doan.inter.Service;
+import com.example.doan.common.Service;
 import com.example.doan.api.apiProduct;
 import com.example.doan.model.Brand;
 import com.example.doan.model.Product;
@@ -52,7 +51,6 @@ public class tabProduct extends Fragment {
         super.onResume();
         if (bundle != null) {
             token = bundle.getString("token");
-            Log.d("runrun", "Frag: "+token);
             checkList();
         }
     }
@@ -67,8 +65,8 @@ public class tabProduct extends Fragment {
         intUI();
         if (bundle != null) {
             token = bundle.getString("token");
-            getBrand(token);
             getProduct(token);
+            getBrand(token);
         }
         return view;
     }
@@ -85,7 +83,7 @@ public class tabProduct extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                filterPro(s);
+                filterPro(s,1);
                 return false;
             }
         });
@@ -152,24 +150,29 @@ public class tabProduct extends Fragment {
 
     private void setListBr(List<Brand> brandList) { this.brandList = brandList; }
 
-    private void filterPro(String text) {
+    private void filterPro(String text, int i) {
         inBrandList = new ArrayList<>();
-
-        for (Brand brand :brandList){
-            String brandID = brand.get_id();
-            String brandName = brand.getBrand();
-            List<Product> products = new ArrayList<>();
-            for (Product product: productList) {
-                String brandID_Pr = product.getId_brand();
-                if (brandID_Pr.equals(brandID) && product.getProduct().toLowerCase().contains(text.toLowerCase())){
-                    products.add(product);
+        if (productList!=null && brandList!=null) {
+            for (Brand brand :brandList){
+                String brandID = brand.get_id();
+                String brandName = brand.getBrand();
+                List<Product> products = new ArrayList<>();
+                for (Product product: productList) {
+                    String brandID_Pr = product.getId_brand();
+                    String categoryID_Pr = product.getId_category();
+                    String productName = product.getProduct();
+                    if (brandID_Pr.equals(brandID) && productName.toLowerCase().contains(text.toLowerCase()) && i==1){
+                        products.add(product);
+                    } else if (brandID_Pr.equals(brandID) && categoryID_Pr.equals(text) && i==2) {
+                        products.add(product);
+                    }
+                }
+                if (products.size()!=0) {
+                    inBrandList.add(new productInBrand(brandID, brandName, products));
                 }
             }
-            if (products.size()!=0) {
-                inBrandList.add(new productInBrand(brandID, brandName, products));
-            }
+            setProductRecyclerView(inBrandList);
         }
-        setProductRecyclerView(inBrandList);
     }
 
     private void setProductRecyclerView(List<productInBrand> list) {

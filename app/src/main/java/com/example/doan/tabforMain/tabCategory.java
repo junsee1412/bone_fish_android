@@ -8,17 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doan.R;
 import com.example.doan.adapter.CategoryAdapter;
-import com.example.doan.adapter.ProductAdapter;
 import com.example.doan.api.apiCategory;
-import com.example.doan.inter.Service;
+import com.example.doan.common.Service;
 import com.example.doan.model.Category;
-import com.example.doan.model.Product;
 
 import java.util.List;
 
@@ -42,11 +39,11 @@ public class tabCategory extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (bundle!=null) {
-            token = bundle.getString("token");
-            Log.d("runrun", "Frag: "+token);
-            getListCategory(token);
-        }
+//        if (bundle!=null) {
+//            token = bundle.getString("token");
+//            Log.d("runrun", "Frag: "+token);
+//            getListCategory(token);
+//        }
     }
 
     @Override

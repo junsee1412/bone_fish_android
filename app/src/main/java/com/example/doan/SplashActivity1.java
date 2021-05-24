@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.doan.inter.sqlite;
+import com.example.doan.common.sqlite;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -46,6 +46,13 @@ public class SplashActivity1 extends AppCompatActivity {
                 publishProgress(i);
 
                 db.QueryData("CREATE TABLE IF NOT EXISTS token(id INTEGER PRIMARY KEY AUTOINCREMENT, token TEXT)");
+                db.QueryData("CREATE TABLE IF NOT EXISTS bill(" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        " id_product TEXT," +
+                        " quantity INTEGER," +
+                        " price INTEGER," +
+                        " product TEXT," +
+                        " image TEXT)");
             }
             return null;
         }

@@ -32,15 +32,15 @@ public class BrandAdapter extends RecyclerView.Adapter<BrandAdapter.BrandHolder>
     public BrandHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //        context = parent.getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.item_brand, parent, false);
-        Log.d("runrun", "1"+context.toString());
-        Log.d("runrun", "2"+parent.getContext().toString());
+//        Log.d("runrun", "1"+context.toString());
+//        Log.d("runrun", "2"+parent.getContext().toString());
         return new  BrandHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull BrandAdapter.BrandHolder holder, int position) {
         productInBrand inBrand = inBrandList.get(position);
-        Log.d("runrun", context.toString());
+//        Log.d("runrun", context.toString());
         LinearLayoutManager linear = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         holder.proRecy.setLayoutManager(linear);
 

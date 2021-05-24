@@ -1,4 +1,4 @@
-package com.example.doan.inter;
+package com.example.doan.common;
 
 import com.example.doan.model.Product;
 
