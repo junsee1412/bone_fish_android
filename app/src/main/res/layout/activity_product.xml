@@ -6,141 +6,183 @@
     android:layout_height="match_parent"
     tools:context=".ProductActivity">
 
-    <ImageView
-        android:id="@+id/back2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_arrow_back_black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/product_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Product Detail"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/back2"
-        app:layout_constraintStart_toEndOf="@+id/back2"
-        app:layout_constraintTop_toTopOf="@+id/back2" />
-
-
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="340dp"
-        android:layout_height="340dp"
-        android:layout_marginTop="32dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_fish_bones_round"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back2" />
-
-    <TextView
-        android:id="@+id/productName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:text="Product"
-        android:textSize="29dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img" />
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="$: "
-        android:textSize="24dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/productPrice"
-        app:layout_constraintEnd_toStartOf="@+id/productPrice"
-        app:layout_constraintTop_toTopOf="@+id/productPrice" />
-
-    <TextView
-        android:id="@+id/productPrice"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:text="100"
-        android:textSize="24dp"
-        android:textStyle="bold"
+        android:background="@drawable/usergb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/quantity"
+        <ImageView
+            android:id="@+id/back2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_arrow_back_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/product_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Product Detail"
+            android:textSize="20dp"
+            android:textColor="#DF03082B"
+            app:layout_constraintBottom_toBottomOf="@+id/back2"
+            app:layout_constraintStart_toEndOf="@+id/back2"
+            app:layout_constraintTop_toTopOf="@+id/back2" />
+
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="340dp"
+            android:layout_height="340dp"
+            android:layout_marginTop="32dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_fish_bones_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back2" />
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Product"
+            android:textSize="29dp"
+            android:textStyle="bold"
+            android:textColor="#DF03082B"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$: "
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:textColor="#DF03082B"
+            app:layout_constraintBottom_toBottomOf="@+id/productPrice"
+            app:layout_constraintEnd_toStartOf="@+id/productPrice"
+            app:layout_constraintTop_toTopOf="@+id/productPrice" />
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:text="100"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:textColor="#DF03082B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img" />
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:text="in stock: "
+            android:textSize="20dp"
+            android:textColor="#DF03082B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productName" />
+
+        <TextView
+            android:id="@+id/qty"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="100"
+            android:textSize="20dp"
+            android:textColor="#DF03082B"
+            app:layout_constraintBottom_toBottomOf="@+id/quantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/quantity"
+            app:layout_constraintTop_toTopOf="@+id/quantity" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:text="in stock: "
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/productName" />
-
-    <TextView
-        android:id="@+id/qty"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="100"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/quantity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/quantity"
-        app:layout_constraintTop_toTopOf="@+id/quantity" />
-
-    <ImageView
-        android:id="@+id/btnEditPro"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="72dp"
-        android:background="#82B1FF"
-        android:padding="10dp"
-        android:src="@drawable/ic_edit"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:cardCornerRadius="15dp">
 
-    <ImageView
-        android:id="@+id/delProduct"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        <ImageView
+            android:id="@+id/btnEditPro"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="#82B1FF"
+            android:padding="10dp"
+            android:src="@drawable/ic_edit" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:background="#FF9E80"
-        android:padding="10dp"
-        android:src="@drawable/ic_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEditPro"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnEditPro" />
+        app:layout_constraintTop_toTopOf="@+id/cardView3"
+        app:cardCornerRadius="15dp">
 
-    <ImageView
-        android:id="@+id/addToCart"
+        <ImageView
+            android:id="@+id/delProduct"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="#FF9E80"
+            android:padding="10dp"
+            android:src="@drawable/ic_delete" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#FFD180"
-        android:padding="10dp"
-        android:src="@drawable/ic_add_cart"
-        app:layout_constraintBottom_toBottomOf="@+id/delProduct"
-        app:layout_constraintEnd_toStartOf="@+id/delProduct"
-        app:layout_constraintStart_toEndOf="@+id/btnEditPro"
-        app:layout_constraintTop_toTopOf="@+id/delProduct" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView4"
+        app:layout_constraintEnd_toStartOf="@+id/cardView4"
+        app:layout_constraintStart_toEndOf="@+id/cardView3"
+        app:layout_constraintTop_toTopOf="@+id/cardView4"
+        app:cardCornerRadius="15dp">
+
+        <ImageView
+            android:id="@+id/addToCart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFD180"
+            android:padding="10dp"
+            android:src="@drawable/ic_add_cart" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

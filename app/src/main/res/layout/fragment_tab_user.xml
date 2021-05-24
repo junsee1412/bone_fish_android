@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#F9FBFC"
     tools:context=".tabforMain.tabUser">
 
 
@@ -27,6 +27,7 @@
             android:layout_marginTop="32dp"
             android:text="Hello"
             android:textSize="20dp"
+            android:textColor="#DF03082B"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,6 +40,7 @@
             android:text="JUNSEE1412"
             android:textSize="26dp"
             android:textStyle="bold"
+            android:textColor="#DF03082B"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -48,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="junsee1412@game.net"
+            android:textColor="#DF03082B"
             app:layout_constraintStart_toStartOf="@+id/userName"
             app:layout_constraintTop_toBottomOf="@+id/userName" />
 
@@ -147,7 +150,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="0dp"
-        android:layout_height="90dp"
+        android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
@@ -157,8 +160,16 @@
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
+        <Button
+            android:id="@+id/Logout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#83414E"
+            android:text="Logout"
+            android:textSize="24sp"
+            app:backgroundTint="#7E3F4B" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

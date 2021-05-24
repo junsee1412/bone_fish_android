@@ -2,9 +2,11 @@ package com.example.doan;
 
 import android.Manifest;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ public class SplashActivity1 extends AppCompatActivity {
 
     ProgressBar progressBar;
     sqlite db = new sqlite(SplashActivity1.this, "bone_fish.sqlite", null, 1);
+    Cursor cursor;
     LoadProgress loadProgress;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class SplashActivity1 extends AppCompatActivity {
                         " price INTEGER," +
                         " product TEXT," +
                         " image TEXT)");
+
             }
             return null;
         }
@@ -66,7 +70,13 @@ public class SplashActivity1 extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void unused) {
             super.onPostExecute(unused);
-            Intent i = new Intent(SplashActivity1.this, LoginActivity.class);
+            cursor = db.GetData("SELECT * FROM token");
+            Intent i;
+            if (cursor.moveToNext()) {
+                i = new Intent(SplashActivity1.this, MainActivity.class);
+            } else {
+                i = new Intent(SplashActivity1.this, LoginActivity.class);
+            }
             startActivity(i);
             finish();
         }

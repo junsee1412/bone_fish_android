@@ -87,8 +87,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void toMainActivity(String token) {
         Intent intent = new Intent(this, MainActivity.class);
-        db.QueryData("DELETE FROM token");
-        db.QueryData("DELETE FROM bill");
+//        db.QueryData("DELETE FROM token");
+//        db.QueryData("DELETE FROM bill");
         db.QueryData("INSERT INTO token VALUES(null,'"+token+"')");
         startActivity(intent);
     }
