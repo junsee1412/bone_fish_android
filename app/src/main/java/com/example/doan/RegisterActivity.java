@@ -64,10 +64,8 @@ public class RegisterActivity extends AppCompatActivity {
                     User user = response.body();
                     if (user.getMessage()!=null){
                         progressDialog.hide();
-                        Log.d("runrun", user.getMessage());
                         showToast("Account already exists");
                     } else {
-                        Log.d("runrun", user.getToken());
                         toMainActivity(user.getToken());
                     }
                 }
@@ -87,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void toMainActivity(String token) {
         Intent intent = new Intent(this, MainActivity.class);
-        db.QueryData("DELETE FROM token");
+//        db.QueryData("DELETE FROM token");
         db.QueryData("INSERT INTO token VALUES(null,'"+token+"')");
         startActivity(intent);
     }

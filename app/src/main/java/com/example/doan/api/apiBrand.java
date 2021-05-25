@@ -9,6 +9,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -22,7 +23,7 @@ public interface apiBrand {
     //put Brand
     @FormUrlEncoded
     @PUT("/api/brand")
-    Call<Brand> updateBrand(@Field("token") String token, @Field("brand") String brand);
+    Call<Brand> updateBrand(@Field("token") String token, @Field("idbrand") String idbrand, @Field("brand") String brand);
 
     //get listBrand
     @GET("/api/{token}/brand")
@@ -34,6 +35,6 @@ public interface apiBrand {
 
     //delete Brand
     @FormUrlEncoded
-    @DELETE("/api/brand")
+    @HTTP(method = "DELETE", path = "/api/brand", hasBody = true)
     Call<Brand> delBrand(@Field("token") String token, @Field("id") String id);
 }

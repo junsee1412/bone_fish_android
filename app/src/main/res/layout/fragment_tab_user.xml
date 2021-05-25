@@ -9,9 +9,10 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="64dp"
         android:background="@drawable/usergb"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,8 +27,8 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="32dp"
             android:text="Hello"
-            android:textSize="20dp"
             android:textColor="#DF03082B"
+            android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,9 +39,9 @@
             android:layout_marginTop="24dp"
             android:fontFamily="sans-serif-black"
             android:text="JUNSEE1412"
+            android:textColor="#DF03082B"
             android:textSize="26dp"
             android:textStyle="bold"
-            android:textColor="#DF03082B"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -58,15 +59,13 @@
             android:id="@+id/cardView5"
             android:layout_width="160dp"
             android:layout_height="70dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="190dp"
             android:layout_marginRight="190dp"
-            android:layout_marginBottom="350dp"
             app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailUser" >
+            app:layout_constraintTop_toBottomOf="@+id/emailUser">
 
             <Button
                 android:id="@+id/All_Product"
@@ -82,12 +81,10 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="230dp"
             app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/cardView5"
             app:layout_constraintStart_toStartOf="@+id/cardView5"
-            app:layout_constraintTop_toBottomOf="@+id/cardView5" >
+            app:layout_constraintTop_toBottomOf="@+id/cardView5">
 
             <Button
                 android:id="@+id/All_Brand"
@@ -103,12 +100,10 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="130dp"
             app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/cardView6"
             app:layout_constraintStart_toStartOf="@+id/cardView6"
-            app:layout_constraintTop_toBottomOf="@+id/cardView6" >
+            app:layout_constraintTop_toBottomOf="@+id/cardView6">
 
             <Button
                 android:id="@+id/All_Category"
@@ -124,12 +119,10 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="32dp"
             app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/cardView7"
             app:layout_constraintStart_toStartOf="@+id/cardView7"
-            app:layout_constraintTop_toBottomOf="@+id/cardView7" >
+            app:layout_constraintTop_toBottomOf="@+id/cardView7">
 
             <Button
                 android:id="@+id/All_Bill"
@@ -150,7 +143,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/cardView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cardView5" >
+            app:layout_constraintTop_toTopOf="@+id/cardView5">
 
             <Button
                 android:id="@+id/Add_Product"
@@ -169,7 +162,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/cardView6"
             app:layout_constraintEnd_toEndOf="@+id/cardView8"
             app:layout_constraintStart_toStartOf="@+id/cardView8"
-            app:layout_constraintTop_toTopOf="@+id/cardView6" >
+            app:layout_constraintTop_toTopOf="@+id/cardView6">
 
             <Button
                 android:id="@+id/Add_Brand"
@@ -188,7 +181,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/cardView7"
             app:layout_constraintEnd_toEndOf="@+id/cardView9"
             app:layout_constraintStart_toStartOf="@+id/cardView9"
-            app:layout_constraintTop_toTopOf="@+id/cardView7" >
+            app:layout_constraintTop_toTopOf="@+id/cardView7">
 
             <Button
                 android:id="@+id/Add_Category"
@@ -206,7 +199,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/cardView10"
             app:layout_constraintEnd_toEndOf="@+id/cardView11"
             app:layout_constraintStart_toStartOf="@+id/cardView11"
-            app:layout_constraintTop_toTopOf="@+id/cardView10" >
+            app:layout_constraintTop_toTopOf="@+id/cardView10">
 
             <Button
                 android:id="@+id/Password"
@@ -227,7 +220,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="#83414E"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

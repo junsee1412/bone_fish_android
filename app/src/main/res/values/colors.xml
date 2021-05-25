@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="nonfocus_bill">#40C4FF</color>
+    <color name="focus">#B9F6CA</color>
+    <color name="nonfocus_product">#FFEAA4</color>
 </resources>

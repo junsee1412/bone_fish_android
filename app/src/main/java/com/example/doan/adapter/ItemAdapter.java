@@ -62,6 +62,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
                         int newQty = parseInt(strQty);
                         if (newQty>0) {
                             holder.quantity.setText(strQty);
+                            holder.quantity.clearFocus();
                             EditItem(item.getId_product(), newQty);
                         } else {
                             RemoveItem(position, item.getId_product());

@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.doan.ListDataActivity;
+import com.example.doan.ProductActivity;
 import com.example.doan.R;
 import com.example.doan.SplashActivity1;
 import com.example.doan.api.apiUser;
@@ -25,8 +27,8 @@ import retrofit2.Response;
 
 public class tabUser extends Fragment {
 
-    Service service;
-    apiUser serviceUser = service.retrofit.create(apiUser.class);
+    private Service service;
+    private apiUser serviceUser = service.retrofit.create(apiUser.class);
 
     private String token;
     private Bundle bundle;
@@ -82,15 +84,37 @@ public class tabUser extends Fragment {
 
         AlProduct = view.findViewById(R.id.All_Product);
         AdProduct = view.findViewById(R.id.Add_Product);
+
         AlBrand = view.findViewById(R.id.All_Brand);
         AdBrand = view.findViewById(R.id.Add_Brand);
+
         AlCategory = view.findViewById(R.id.All_Category);
         AdCategory = view.findViewById(R.id.Add_Category);
+
         AlBill = view.findViewById(R.id.All_Bill);
         Password = view.findViewById(R.id.Password);
+
         logout = view.findViewById(R.id.Logout);
 
+        AlProduct.setOnClickListener(v -> {});
+        AdProduct.setOnClickListener(v -> {});
+
+        AlBrand.setOnClickListener(v -> toListDataActivity("Brand"));
+        AdBrand.setOnClickListener(v -> {});
+
+        AlCategory.setOnClickListener(v -> toListDataActivity("Category"));
+        AdCategory.setOnClickListener(v -> {});
+
+        AlBill.setOnClickListener(v -> {});
+        Password.setOnClickListener(v -> {});
+
         logout.setOnClickListener(v -> Logout());
+    }
+
+    private void toListDataActivity(String title) {
+        Intent intent = new Intent(context, ListDataActivity.class);
+        intent.putExtra("title", title);
+        context.startActivity(intent);
     }
 
     private void showProfile(String email) {
@@ -105,6 +129,8 @@ public class tabUser extends Fragment {
         sqlite db = new sqlite(context, "bone_fish.sqlite", null, 1);
         db.QueryData("DELETE FROM token");
         db.QueryData("DELETE FROM bill");
+        db.QueryData("DELETE FROM cate");
+        db.QueryData("DELETE FROM bran");
         context.startActivity(intent);
     }
 }

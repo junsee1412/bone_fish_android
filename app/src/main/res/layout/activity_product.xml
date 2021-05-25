@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:minWidth="100dp"
                 android:padding="5dp"
-                android:background="#B9F6CA"
+                android:background="@drawable/focus_text_product"
                 android:text="Product"
                 android:textColor="#DF03082B"
                 android:textSize="29dp"
@@ -89,7 +89,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#B9F6CA"
+                android:background="#FFEAA4"
                 android:padding="5dp"
                 android:orientation="horizontal">
 
@@ -107,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="50dp"
-                    android:background="#B9F6CA"
+                    android:background="@drawable/focus_text_product"
                     android:text="100"
                     android:textColor="#DF03082B"
                     android:textSize="24dp"
@@ -129,7 +129,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#B9F6CA"
+                android:background="#FFEAA4"
                 android:padding="5dp"
                 android:orientation="horizontal">
 
@@ -146,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="40dp"
-                    android:background="#B9F6CA"
+                    android:background="@drawable/focus_text_product"
                     android:text="100"
                     android:textColor="#DF03082B"
                     android:textSize="20dp" />

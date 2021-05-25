@@ -94,7 +94,7 @@
                 android:id="@+id/qtyBill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#B9F6CA"
+                android:background="@drawable/focus_text_bill"
                 android:minWidth="80dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="3dp"

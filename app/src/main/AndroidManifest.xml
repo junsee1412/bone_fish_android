@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.doan">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,13 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doan"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProductActivity"
+        <activity android:name=".BillActivity"></activity>
+        <activity android:name=".AddDataActivity" />
+        <activity android:name=".ListDataActivity" />
+        <activity
+            android:name=".ProductActivity"
             android:noHistory="true" />
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".LoginActivity"/>
-        <activity
-            android:name=".RegisterActivity"/>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity
             android:name=".SplashActivity1"
             android:noHistory="true">

@@ -56,7 +56,12 @@ public class SplashActivity1 extends AppCompatActivity {
                         " price INTEGER," +
                         " product TEXT," +
                         " image TEXT)");
-
+                db.QueryData("CREATE TABLE IF NOT EXISTS cate(id TEXT PRIMARY KEY, " +
+                        "id_user TEXT," +
+                        "cate TEXT)");
+                db.QueryData("CREATE TABLE IF NOT EXISTS bran(id TEXT PRIMARY KEY, " +
+                        "id_user TEXT, " +
+                        "bran TEXT)");
             }
             return null;
         }

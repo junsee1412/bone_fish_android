@@ -1,6 +1,7 @@
 package com.example.doan.tabforMain;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,7 @@ import com.example.doan.api.apiBrand;
 import com.example.doan.api.apiCategory;
 import com.example.doan.common.Service;
 import com.example.doan.api.apiProduct;
+import com.example.doan.common.sqlite;
 import com.example.doan.model.Brand;
 import com.example.doan.model.Category;
 import com.example.doan.model.Product;
@@ -34,10 +36,13 @@ import retrofit2.Response;
 
 public class tabProduct extends Fragment {
 
-    Service service;
-    apiProduct servicePro = service.retrofit.create(apiProduct.class);
-    apiBrand serviceBra = service.retrofit.create(apiBrand.class);
-    apiCategory serviceCate = service.retrofit.create(apiCategory.class);
+    private Service service;
+    private apiProduct servicePro = service.retrofit.create(apiProduct.class);
+    private apiBrand serviceBra = service.retrofit.create(apiBrand.class);
+    private apiCategory serviceCate = service.retrofit.create(apiCategory.class);
+
+    private sqlite db;
+    private Cursor cursor;
 
     private List<Product> productList;
     private List<Brand> brandList;
@@ -68,6 +73,7 @@ public class tabProduct extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_tab_product, container, false);
         context = getActivity();
+        db  = new sqlite(context, "bone_fish.sqlite", null, 1);
         bundle = this.getArguments();
         intUI();
         if (bundle != null) {
@@ -116,13 +122,22 @@ public class tabProduct extends Fragment {
     }
 
     private void getBrand(String token) {
+        db.QueryData("DELETE FROM bran");
         serviceBra.getlsBrand(token).enqueue(new Callback<List<Brand>>() {
             @Override
             public void onResponse(Call<List<Brand>> call, Response<List<Brand>> response) {
                 if (response.isSuccessful()) {
                     List<Brand> brandList = response.body();
+                    setListPr(productList);
                     setListBr(brandList);
                     checkList();
+                    for (Brand brand :brandList) {
+                        db.QueryData("INSERT INTO bran (id, id_user, bran) VALUES(" +
+                                "'"+brand.get_id()+"'," +
+                                "'"+brand.getId_user()+"'," +
+                                "'"+brand.getBrand()+"')");
+                        Log.d("DB bran", brand.getBrand());
+                    }
                 }
             }
             @Override
@@ -133,12 +148,20 @@ public class tabProduct extends Fragment {
     }
 
     private void getListCategory(String token) {
+        db.QueryData("DELETE FROM cate");
         serviceCate.getlsCategory(token).enqueue(new Callback<List<Category>>() {
             @Override
             public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
                 if (response.isSuccessful()) {
                     categoryList = response.body();
                     setCategoryRecyclerView(categoryList);
+                    for (Category category :categoryList) {
+                        db.QueryData("INSERT INTO cate (id, id_user, cate) VALUES(" +
+                                "'"+category.get_id()+"'," +
+                                "'"+category.getId_user()+"'," +
+                                "'"+category.getCategory()+"')");
+                        Log.d("DB cate", category.getCategory());
+                    }
                 }
             }
             @Override
