@@ -83,10 +83,10 @@
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:cardCornerRadius="7dp"
+            app:layout_constraintBottom_toBottomOf="@+id/nameItemBill"
             app:layout_constraintEnd_toStartOf="@+id/option_item_bill"
             app:layout_constraintTop_toTopOf="@+id/nameItemBill">
 
@@ -95,11 +95,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#B9F6CA"
+                android:minWidth="80dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="3dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="3dp"
-                android:minWidth="80dp"
                 android:text="90"
                 android:textColor="#D703082B"
                 android:textSize="24dp"

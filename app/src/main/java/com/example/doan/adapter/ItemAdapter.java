@@ -61,6 +61,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
                         if (strQty.isEmpty()) strQty="0";
                         int newQty = parseInt(strQty);
                         if (newQty>0) {
+                            holder.quantity.setText(strQty);
                             EditItem(item.getId_product(), newQty);
                         } else {
                             RemoveItem(position, item.getId_product());
@@ -111,7 +112,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
             int div = Oldprice/Oldqty;
             db.QueryData("UPDATE bill SET quantity="+newQty+", price="+newQty*div+" WHERE id="+id);
         }
-        notifyDataSetChanged();
+//        notifyDataSetChanged();
     }
     public void RemoveItem(int p, String id){
         sqlite db = new sqlite(context, "bone_fish.sqlite", null, 1);

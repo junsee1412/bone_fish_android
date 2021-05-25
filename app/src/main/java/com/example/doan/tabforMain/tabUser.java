@@ -32,7 +32,10 @@ public class tabUser extends Fragment {
     private Bundle bundle;
     private View view;
     private Context context;
-    private Button logout;
+    private Button AlProduct, AdProduct,
+            AlBrand, AdBrand,
+            AlCategory, AdCategory,
+            AlBill, Password, logout;
     private TextView username, useremail;
 
     @Override
@@ -76,6 +79,15 @@ public class tabUser extends Fragment {
     private void intUI() {
         username = view.findViewById(R.id.userName);
         useremail = view.findViewById(R.id.emailUser);
+
+        AlProduct = view.findViewById(R.id.All_Product);
+        AdProduct = view.findViewById(R.id.Add_Product);
+        AlBrand = view.findViewById(R.id.All_Brand);
+        AdBrand = view.findViewById(R.id.Add_Brand);
+        AlCategory = view.findViewById(R.id.All_Category);
+        AdCategory = view.findViewById(R.id.Add_Category);
+        AlBill = view.findViewById(R.id.All_Bill);
+        Password = view.findViewById(R.id.Password);
         logout = view.findViewById(R.id.Logout);
 
         logout.setOnClickListener(v -> Logout());

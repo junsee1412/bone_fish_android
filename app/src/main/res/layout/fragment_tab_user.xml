@@ -90,7 +90,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView5" >
 
             <Button
-                android:id="@+id/All_brand"
+                android:id="@+id/All_Brand"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#B388FF"
@@ -153,11 +153,11 @@
             app:layout_constraintTop_toTopOf="@+id/cardView5" >
 
             <Button
-                android:id="@+id/List_Product"
+                android:id="@+id/Add_Product"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#E040FB"
-                android:text="List Product"
+                android:text="Add Product"
                 app:backgroundTint="#E040FB" />
         </androidx.cardview.widget.CardView>
 
@@ -172,11 +172,11 @@
             app:layout_constraintTop_toTopOf="@+id/cardView6" >
 
             <Button
-                android:id="@+id/List_Brand"
+                android:id="@+id/Add_Brand"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#7C4DFF"
-                android:text="List Brand"
+                android:text="Add Brand"
                 app:backgroundTint="#7C4DFF" />
         </androidx.cardview.widget.CardView>
 
@@ -191,11 +191,11 @@
             app:layout_constraintTop_toTopOf="@+id/cardView7" >
 
             <Button
-                android:id="@+id/List_Category"
+                android:id="@+id/Add_Category"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#536DFE"
-                android:text="List Category"
+                android:text="Add Category"
                 app:backgroundTint="#536DFE" />
         </androidx.cardview.widget.CardView>
 
