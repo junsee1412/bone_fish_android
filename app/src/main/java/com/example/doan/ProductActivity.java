@@ -95,13 +95,22 @@ public class ProductActivity extends AppCompatActivity {
         while (cursor.moveToNext()) {
             token = cursor.getString(1);
         }
+
         String proStr = protxt.getText().toString();
         String stkStr = qtytxt.getText().toString();
         String priStr = pricetxt.getText().toString();
+
         if (!proStr.isEmpty() && !stkStr.isEmpty() && !priStr.isEmpty()) {
+
+            cursor = db.GetData("SELECT * FROM bill WHERE id_product='"+productid+"'");
+            if (cursor.moveToNext()) {
+                db.QueryData("UPDATE bill SET product='"+proStr+"' WHERE id_product='"+productid+"'");
+            }
+
             int stk = parseInt(stkStr);
             int pri = parseInt(priStr);
             dialogProgress();
+
             servicePro.updateProduct(token, productid, proStr, stk, pri).enqueue(new Callback<Product>() {
                 @Override
                 public void onResponse(Call<Product> call, Response<Product> response) {
@@ -124,11 +133,18 @@ public class ProductActivity extends AppCompatActivity {
 
     private void delProduct() {
         dialogProgress();
+
         cursor = db.GetData("SELECT * FROM token");
         while (cursor.moveToNext()) {
             token = cursor.getString(1);
             Log.d("runrun","DATA:"+token+"\n"+productid);
         }
+
+        cursor = db.GetData("SELECT * FROM bill WHERE id_product='"+productid+"'");
+        if (cursor.moveToNext()) {
+            db.QueryData("DELETE FROM bill WHERE id_product='"+productid+"'");
+        }
+
         servicePro.delProduct(token, productid).enqueue(new Callback<Product>() {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {

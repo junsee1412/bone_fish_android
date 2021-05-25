@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doan"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProductActivity" />
+        <activity android:name=".ProductActivity"
+            android:noHistory="true" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".LoginActivity"/>
