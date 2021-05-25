@@ -70,12 +70,6 @@ public class ProductActivity extends AppCompatActivity {
         edit.setOnClickListener(v -> editProduct());
     }
 
-    private void editProduct() {
-        Intent intent = new Intent(ProductActivity.this, MainActivity.class);
-        ProductActivity.this.startActivity(intent);
-        finish();
-    }
-
     private void addToCard() {
         cursor = db.GetData("SELECT * FROM bill WHERE id_product='"+productid+"'");
         if (cursor.moveToNext()) {
@@ -96,10 +90,40 @@ public class ProductActivity extends AppCompatActivity {
         finish();
     }
 
+    private void editProduct() {
+        cursor = db.GetData("SELECT * FROM token");
+        while (cursor.moveToNext()) {
+            token = cursor.getString(1);
+        }
+        String proStr = protxt.getText().toString();
+        String stkStr = qtytxt.getText().toString();
+        String priStr = pricetxt.getText().toString();
+        if (!proStr.isEmpty() && !stkStr.isEmpty() && !priStr.isEmpty()) {
+            int stk = parseInt(stkStr);
+            int pri = parseInt(priStr);
+            dialogProgress();
+            servicePro.updateProduct(token, productid, proStr, stk, pri).enqueue(new Callback<Product>() {
+                @Override
+                public void onResponse(Call<Product> call, Response<Product> response) {
+                    if (response.isSuccessful()) {
+                        Product product = response.body();
+                        Toast.makeText(ProductActivity.this, product.getMessage(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ProductActivity.this, MainActivity.class);
+                        ProductActivity.this.startActivity(intent);
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Product> call, Throwable t) {
+                    Toast.makeText(ProductActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else Toast.makeText(this, "Input is Empty", Toast.LENGTH_SHORT).show();
+    }
+
     private void delProduct() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
-        progressDialog.show();
+        dialogProgress();
         cursor = db.GetData("SELECT * FROM token");
         while (cursor.moveToNext()) {
             token = cursor.getString(1);
@@ -110,7 +134,7 @@ public class ProductActivity extends AppCompatActivity {
             public void onResponse(Call<Product> call, Response<Product> response) {
                 if (response.isSuccessful()) {
                     Product product = response.body();
-//                    Toast.makeText(ProductActivity.this, product.getMessage(), Toast.LENGTH_LONG);
+                    Toast.makeText(ProductActivity.this, product.getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ProductActivity.this, MainActivity.class);
                     ProductActivity.this.startActivity(intent);
                     Log.d("runrun","message:"+product.getMessage());
@@ -120,8 +144,13 @@ public class ProductActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Product> call, Throwable t) {
-                Toast.makeText(ProductActivity.this, "Server Error", Toast.LENGTH_SHORT);
+                Toast.makeText(ProductActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void dialogProgress() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.show();
     }
 }

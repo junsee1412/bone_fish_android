@@ -33,6 +33,7 @@ public interface apiProduct {
     @FormUrlEncoded
     @PUT("/api/product")
     Call<Product> updateProduct(@Field("token") String token,
+                                @Field("idproduct") String idproduct,
                                 @Field("product") String product,
                                 @Field("stock") int stock,
                                 @Field("price") int price);
