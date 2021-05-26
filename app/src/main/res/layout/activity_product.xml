@@ -70,6 +70,7 @@
                 android:padding="5dp"
                 android:background="@drawable/focus_text_product"
                 android:text="Product"
+                android:inputType="textPersonName"
                 android:maxLines="1"
                 android:textColor="#DF03082B"
                 android:textSize="29dp"
