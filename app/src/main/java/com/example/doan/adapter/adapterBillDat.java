@@ -1,6 +1,7 @@
 package com.example.doan.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.doan.BillActivity;
 import com.example.doan.R;
 import com.example.doan.model.Bill;
 import com.example.doan.model.itemBill;
@@ -46,6 +48,11 @@ public class adapterBillDat extends RecyclerView.Adapter<adapterBillDat.BillDatH
             price+= parseInt(itemBill.getPrice());
         }
         holder.price.setText("$: "+String.valueOf(price));
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, BillActivity.class);
+            intent.putExtra("id", bill.get_id());
+            context.startActivity(intent);
+        });
     }
 
     @Override
