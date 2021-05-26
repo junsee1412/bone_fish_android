@@ -64,11 +64,10 @@ public class LoginActivity extends AppCompatActivity {
                     User user = response.body();
                     if (user.getMessage()!=null){
                         progressDialog.hide();
-                        Log.d("runrun", user.getMessage());
                         showToast("Account does not exist");
                     } else {
-                        Log.d("runrun", user.getToken());
                         toMainActivity(user.getToken());
+                        progressDialog.hide();
                     }
                 }
             }
@@ -76,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 showToast("Server error");
-                Log.d("runrun", "errrorr");
+                progressDialog.hide();
             }
         });
     }

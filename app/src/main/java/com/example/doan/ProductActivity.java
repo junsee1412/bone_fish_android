@@ -102,14 +102,14 @@ public class ProductActivity extends AppCompatActivity {
 
         if (!proStr.isEmpty() && !stkStr.isEmpty() && !priStr.isEmpty()) {
 
+            int stk = parseInt(stkStr);
+            int pri = parseInt(priStr);
+
+            db.QueryData("UPDATE prod SET product='"+proStr+"', stock="+stk+", price="+pri+" WHERE id='"+productid+"'");
             cursor = db.GetData("SELECT * FROM bill WHERE id_product='"+productid+"'");
             if (cursor.moveToNext()) {
                 db.QueryData("UPDATE bill SET product='"+proStr+"' WHERE id_product='"+productid+"'");
             }
-
-            int stk = parseInt(stkStr);
-            int pri = parseInt(priStr);
-            dialogProgress();
 
             servicePro.updateProduct(token, productid, proStr, stk, pri).enqueue(new Callback<Product>() {
                 @Override
@@ -117,9 +117,8 @@ public class ProductActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         Product product = response.body();
                         Toast.makeText(ProductActivity.this, product.getMessage(), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ProductActivity.this, MainActivity.class);
-                        ProductActivity.this.startActivity(intent);
-                        finish();
+//                        Intent intent = new Intent(ProductActivity.this, MainActivity.class);
+//                        ProductActivity.this.startActivity(intent);
                     }
                 }
 
@@ -128,16 +127,16 @@ public class ProductActivity extends AppCompatActivity {
                     Toast.makeText(ProductActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
                 }
             });
+            finish();
+
         } else Toast.makeText(this, "Input is Empty", Toast.LENGTH_SHORT).show();
     }
 
     private void delProduct() {
-        dialogProgress();
-
+        db.QueryData("DELETE FROM prod WHERE id='"+productid+"'");
         cursor = db.GetData("SELECT * FROM token");
         while (cursor.moveToNext()) {
             token = cursor.getString(1);
-            Log.d("runrun","DATA:"+token+"\n"+productid);
         }
 
         cursor = db.GetData("SELECT * FROM bill WHERE id_product='"+productid+"'");
@@ -151,10 +150,8 @@ public class ProductActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Product product = response.body();
                     Toast.makeText(ProductActivity.this, product.getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ProductActivity.this, MainActivity.class);
-                    ProductActivity.this.startActivity(intent);
-                    Log.d("runrun","message:"+product.getMessage());
-                    finish();
+//                    Intent intent = new Intent(ProductActivity.this, MainActivity.class);
+//                    ProductActivity.this.startActivity(intent);
                 }
             }
 
@@ -163,10 +160,11 @@ public class ProductActivity extends AppCompatActivity {
                 Toast.makeText(ProductActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
             }
         });
+        finish();
     }
-    private void dialogProgress() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
-        progressDialog.show();
-    }
+//    private void dialogProgress() {
+//        progressDialog = new ProgressDialog(this);
+//        progressDialog.setMessage("Please wait...");
+//        progressDialog.show();
+//    }
 }

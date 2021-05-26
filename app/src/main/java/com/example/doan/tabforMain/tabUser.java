@@ -96,7 +96,7 @@ public class tabUser extends Fragment {
 
         logout = view.findViewById(R.id.Logout);
 
-        AlProduct.setOnClickListener(v -> {});
+        AlProduct.setOnClickListener(v -> toListDataActivity("Product"));
         AdProduct.setOnClickListener(v -> {});
 
         AlBrand.setOnClickListener(v -> toListDataActivity("Brand"));

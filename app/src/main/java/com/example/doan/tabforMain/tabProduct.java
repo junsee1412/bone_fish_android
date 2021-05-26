@@ -63,7 +63,9 @@ public class tabProduct extends Fragment {
         super.onResume();
         if (bundle != null) {
             token = bundle.getString("token");
-            checkList();
+            setListPr();
+            setListBr();
+            setListCa();
         }
     }
 
@@ -105,13 +107,19 @@ public class tabProduct extends Fragment {
     }
 
     private void getProduct(String token) {
+        db.QueryData("DELETE FROM prod");
         servicePro.getlsProduct(token).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if(response.isSuccessful()) {
                     List<Product> productList = response.body();
-                    setListPr(productList);
-                    checkList();
+                    for (Product product :productList) {
+                        db.QueryData("INSERT INTO prod (id, id_brand, id_category, id_user, product, stock, price, image) VALUES" +
+                                "('"+product.get_id()+"', '"+product.getId_brand()+"', '"+product.getId_category()+"'," +
+                                " '"+product.getId_user()+"', '"+product.getProduct()+"', "+product.getStock()+"," +
+                                " "+product.getPrice()+", '"+product.getImg()+"')");
+                    }
+                    setListPr();
                 }
             }
             @Override
@@ -128,9 +136,6 @@ public class tabProduct extends Fragment {
             public void onResponse(Call<List<Brand>> call, Response<List<Brand>> response) {
                 if (response.isSuccessful()) {
                     List<Brand> brandList = response.body();
-                    setListPr(productList);
-                    setListBr(brandList);
-                    checkList();
                     for (Brand brand :brandList) {
                         db.QueryData("INSERT INTO bran (id, id_user, bran) VALUES(" +
                                 "'"+brand.get_id()+"'," +
@@ -138,6 +143,7 @@ public class tabProduct extends Fragment {
                                 "'"+brand.getBrand()+"')");
                         Log.d("DB bran", brand.getBrand());
                     }
+                    setListBr();
                 }
             }
             @Override
@@ -154,7 +160,6 @@ public class tabProduct extends Fragment {
             public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
                 if (response.isSuccessful()) {
                     categoryList = response.body();
-                    setCategoryRecyclerView(categoryList);
                     for (Category category :categoryList) {
                         db.QueryData("INSERT INTO cate (id, id_user, cate) VALUES(" +
                                 "'"+category.get_id()+"'," +
@@ -162,6 +167,7 @@ public class tabProduct extends Fragment {
                                 "'"+category.getCategory()+"')");
                         Log.d("DB cate", category.getCategory());
                     }
+                    setListCa();
                 }
             }
             @Override
@@ -194,9 +200,34 @@ public class tabProduct extends Fragment {
         }
     }
 
-    private void setListPr(List<Product> productList) { this.productList = productList; }
+    private void setListPr() {
+        productList = new ArrayList<>();
+        cursor = db.GetData("SELECT * FROM prod");
+        while (cursor.moveToNext()) {
+            productList.add(new Product(cursor.getString(0), cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                    cursor.getInt(5), cursor.getInt(6), cursor.getString(7)));
+        }
+        checkList();
+    }
 
-    private void setListBr(List<Brand> brandList) { this.brandList = brandList; }
+    private void setListBr() {
+        brandList = new ArrayList<>();
+        cursor = db.GetData("SELECT * FROM bran");
+        while (cursor.moveToNext()) {
+            brandList.add(new Brand(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
+        }
+        checkList();
+    }
+
+    private void setListCa() {
+        categoryList = new ArrayList<>();
+        cursor = db.GetData("SELECT * FROM cate");
+        while (cursor.moveToNext()) {
+            categoryList.add(new Category(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
+        }
+        setCategoryRecyclerView(categoryList);
+    }
 
     private void filterPro(String text, int i) {
         inBrandList = new ArrayList<>();

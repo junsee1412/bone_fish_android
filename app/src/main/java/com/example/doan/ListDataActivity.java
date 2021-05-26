@@ -79,13 +79,13 @@ public class ListDataActivity extends AppCompatActivity {
             title.setText(getTitle);
             showRecyCategory();
 
-        } else if (getTitle.equals("Bill")) {
+        } else if (getTitle.equals("Product")) {
             title.setText(getTitle);
-            showRecyBill();
+            showRecyProduct();
 
         } else {
             title.setText(getTitle);
-            showRecyProduct();
+            showRecyBill();
         }
     }
 
@@ -99,7 +99,6 @@ public class ListDataActivity extends AppCompatActivity {
         dataRecyclerView.setLayoutManager(layoutManager);
         adapterBranDat = new adapterBranDat(brandList, this, token);
         dataRecyclerView.setAdapter(adapterBranDat);
-        Log.d("Token", token);
     }
 
     private void showRecyCategory() {
@@ -112,7 +111,20 @@ public class ListDataActivity extends AppCompatActivity {
         dataRecyclerView.setLayoutManager(layoutManager);
         adapterCateDat = new adapterCateDat(categoryList, this, token);
         dataRecyclerView.setAdapter(adapterCateDat);
-        Log.d("Token", token);
+    }
+
+    private void showRecyProduct() {
+        cursor = db.GetData("SELECT * FROM prod");
+        productList = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            productList.add(new Product(cursor.getString(0), cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                    cursor.getInt(5), cursor.getInt(6), cursor.getString(7)));
+        }
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        dataRecyclerView.setLayoutManager(layoutManager);
+        adapterProdDat = new adapterProdDat(productList,this);
+        dataRecyclerView.setAdapter(adapterProdDat);
     }
 
     private void showRecyBill() {
@@ -129,25 +141,6 @@ public class ListDataActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Bill>> call, Throwable t) {
-
-            }
-        });
-    }
-
-    private void showRecyProduct() {
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this,2);
-        dataRecyclerView.setLayoutManager(layoutManager);
-        servicePro.getlsProduct(token).enqueue(new Callback<List<Product>>() {
-            @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                if (response.isSuccessful()) {
-                    productList = response.body();
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
 
             }
         });

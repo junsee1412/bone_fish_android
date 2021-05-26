@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:background="@drawable/usergb"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
@@ -119,7 +119,9 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="36dp"
             app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/cardView7"
             app:layout_constraintStart_toStartOf="@+id/cardView7"
             app:layout_constraintTop_toBottomOf="@+id/cardView7">
