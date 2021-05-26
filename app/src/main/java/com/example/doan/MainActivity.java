@@ -49,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         navigationView.getMenu().findItem(R.id.tabProduct).setChecked(true);
                         break;
-//                    case 1:
-//                        navigationView.getMenu().findItem(R.id.tabCategory).setChecked(true);
-//                        break;
                     case 1:
                         navigationView.getMenu().findItem(R.id.tabBill).setChecked(true);
                         break;
@@ -67,9 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.tabProduct:
                     viewPager.setCurrentItem(0);
                     break;
-//                case R.id.tabCategory:
-//                    viewPager.setCurrentItem(1);
-//                    break;
                 case R.id.tabBill:
                     viewPager.setCurrentItem(1);
                     break;

@@ -6,13 +6,14 @@ public class itemBill {
     @SerializedName("id_product")
     private String id_product;
     @SerializedName("quantity")
-    private int quantity;
+    private String quantity;
     @SerializedName("price")
-    private int price;
+    private String price;
+    @SerializedName("product")
     private String product;
     private String image;
 
-    public itemBill(String id_product, int quantity, int price, String product, String image) {
+    public itemBill(String id_product, String quantity, String price, String product, String image) {
         this.id_product = id_product;
         this.quantity = quantity;
         this.price = price;
@@ -20,10 +21,11 @@ public class itemBill {
         this.image = image;
     }
 
-    public itemBill(String id_product, int quantity, int price) {
+    public itemBill(String id_product, String quantity, String price, String product) {
         this.id_product = id_product;
         this.quantity = quantity;
         this.price = price;
+        this.product = product;
     }
 
     public String getId_product() {
@@ -34,19 +36,19 @@ public class itemBill {
         this.id_product = id_product;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

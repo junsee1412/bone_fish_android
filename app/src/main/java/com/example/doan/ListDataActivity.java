@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.doan.adapter.adapterBillDat;
 import com.example.doan.adapter.adapterBranDat;
@@ -135,13 +136,14 @@ public class ListDataActivity extends AppCompatActivity {
             public void onResponse(Call<List<Bill>> call, Response<List<Bill>> response) {
                 if (response.isSuccessful()) {
                     billList = response.body();
-
+                    adapterBillDat = new adapterBillDat(billList, ListDataActivity.this);
+                    dataRecyclerView.setAdapter(adapterBillDat);
                 }
             }
 
             @Override
             public void onFailure(Call<List<Bill>> call, Throwable t) {
-
+                Toast.makeText(ListDataActivity.this, "Server Error", Toast.LENGTH_SHORT);
             }
         });
     }

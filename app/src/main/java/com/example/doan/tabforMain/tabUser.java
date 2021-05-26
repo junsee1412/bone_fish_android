@@ -105,7 +105,7 @@ public class tabUser extends Fragment {
         AlCategory.setOnClickListener(v -> toListDataActivity("Category"));
         AdCategory.setOnClickListener(v -> {});
 
-        AlBill.setOnClickListener(v -> {});
+        AlBill.setOnClickListener(v -> toListDataActivity("Bill"));
         Password.setOnClickListener(v -> {});
 
         logout.setOnClickListener(v -> Logout());
@@ -131,6 +131,7 @@ public class tabUser extends Fragment {
         db.QueryData("DELETE FROM bill");
         db.QueryData("DELETE FROM cate");
         db.QueryData("DELETE FROM bran");
+        db.QueryData("DELETE FROM prod");
         context.startActivity(intent);
     }
 }

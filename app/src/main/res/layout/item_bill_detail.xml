@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:weightSum="10">
+
+    <TextView
+        android:id="@+id/nameItemBillDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product"
+        android:textSize="28dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
+        android:layout_weight="5"/>
+    <TextView
+        android:id="@+id/qtyItemBillDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x5"
+        android:textSize="20dp"
+        android:layout_weight="1"/>
+    <TextView
+        android:id="@+id/moneyItemBillDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$: 10000"
+        android:textSize="25dp"
+        android:textAlignment="textEnd"
+        android:layout_weight="4"
+        android:gravity="end" />
+
+</LinearLayout>

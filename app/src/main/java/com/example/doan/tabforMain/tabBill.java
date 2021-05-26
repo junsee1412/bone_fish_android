@@ -70,8 +70,8 @@ public class tabBill extends Fragment {
                 int priceProduct = cursor.getInt(3);
                 String nameProduct = cursor.getString(4);
                 String imgProduct = cursor.getString(5);
-                itembills.add(new itemBill(idProduct, qtyProduct, priceProduct));
-                itemBillList.add(new itemBill(idProduct, qtyProduct, priceProduct, nameProduct, imgProduct));
+                itembills.add(new itemBill(idProduct, String.valueOf(qtyProduct), String.valueOf(priceProduct), nameProduct));
+                itemBillList.add(new itemBill(idProduct, String.valueOf(qtyProduct), String.valueOf(priceProduct), nameProduct, imgProduct));
             }
             setBillRecyclerView(itemBillList);
         }
@@ -97,7 +97,7 @@ public class tabBill extends Fragment {
                 String nameProduct = cursor.getString(4);
                 String imgProduct = cursor.getString(5);
 
-                itemBillList.add(new itemBill(idProduct, qtyProduct, priceProduct, nameProduct, imgProduct));
+                itemBillList.add(new itemBill(idProduct, String.valueOf(qtyProduct), String.valueOf(priceProduct), nameProduct, imgProduct));
             }
             setBillRecyclerView(itemBillList);
         }
@@ -131,6 +131,7 @@ public class tabBill extends Fragment {
             map.put("items["+i+"][id_product]", list.get(i).getId_product());
             map.put("items["+i+"][quantity]", String.valueOf(list.get(i).getQuantity()));
             map.put("items["+i+"][price]", String.valueOf(list.get(i).getPrice()));
+            map.put("items["+i+"][product]", list.get(i).getProduct());
         }
 
         serviceBill.createBill(token, t, map).enqueue(new Callback<Bill>() {
