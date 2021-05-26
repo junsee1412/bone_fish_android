@@ -22,7 +22,7 @@ public interface apiUser {
 
     @FormUrlEncoded
     @PUT("/api/user")
-    Call<User> UpdatePassword(@Field("token") String token, @Field("pass") String pass);
+    Call<User> UpdatePassword(@Field("token") String token, @Field("pass") String pass, @Field("newpass") String newpass);
 
     @GET("/api/user/{token}")
     Call<User> GetUser(@Path("token") String token);

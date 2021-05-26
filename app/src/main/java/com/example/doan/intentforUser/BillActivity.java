@@ -1,4 +1,4 @@
-package com.example.doan;
+package com.example.doan.intentforUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doan.R;
 import com.example.doan.adapter.adapterBillDetail;
 import com.example.doan.api.apiBill;
 import com.example.doan.common.Service;
@@ -18,7 +19,6 @@ import com.example.doan.common.sqlite;
 import com.example.doan.model.Bill;
 import com.example.doan.model.itemBill;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

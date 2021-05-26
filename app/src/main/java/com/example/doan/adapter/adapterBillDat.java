@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.doan.BillActivity;
+import com.example.doan.intentforUser.BillActivity;
 import com.example.doan.R;
 import com.example.doan.model.Bill;
 import com.example.doan.model.itemBill;

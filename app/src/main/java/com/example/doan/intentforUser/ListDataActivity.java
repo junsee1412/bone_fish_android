@@ -1,25 +1,23 @@
-package com.example.doan;
+package com.example.doan.intentforUser;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doan.R;
 import com.example.doan.adapter.adapterBillDat;
 import com.example.doan.adapter.adapterBranDat;
 import com.example.doan.adapter.adapterCateDat;
 import com.example.doan.adapter.adapterProdDat;
 import com.example.doan.api.apiBill;
 import com.example.doan.api.apiProduct;
-import com.example.doan.api.apiUser;
 import com.example.doan.common.Service;
 import com.example.doan.common.sqlite;
 import com.example.doan.model.Bill;
@@ -38,7 +36,7 @@ public class ListDataActivity extends AppCompatActivity {
 
     private Service service;
     private apiBill serviceBill = service.retrofit.create(apiBill.class);
-    private apiProduct servicePro = service.retrofit.create(apiProduct.class);
+//    private apiProduct servicePro = service.retrofit.create(apiProduct.class);
 
     private sqlite db = new sqlite(ListDataActivity.this, "bone_fish.sqlite", null, 1);
     private Cursor cursor;

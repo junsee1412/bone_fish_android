@@ -70,6 +70,7 @@
                 android:padding="5dp"
                 android:background="@drawable/focus_text_product"
                 android:text="Product"
+                android:maxLines="1"
                 android:textColor="#DF03082B"
                 android:textSize="29dp"
                 android:textStyle="bold" />
@@ -109,6 +110,8 @@
                     android:minWidth="50dp"
                     android:background="@drawable/focus_text_product"
                     android:text="100"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
                     android:textColor="#DF03082B"
                     android:textSize="24dp"
                     android:textStyle="bold" />
@@ -148,6 +151,8 @@
                     android:minWidth="40dp"
                     android:background="@drawable/focus_text_product"
                     android:text="100"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
                     android:textColor="#DF03082B"
                     android:textSize="20dp" />
             </LinearLayout>

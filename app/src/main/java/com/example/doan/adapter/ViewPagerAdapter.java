@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.doan.tabforMain.tabBill;
-import com.example.doan.tabforMain.tabCategory;
 import com.example.doan.tabforMain.tabProduct;
 import com.example.doan.tabforMain.tabUser;
 

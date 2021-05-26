@@ -22,6 +22,7 @@
             android:layout_marginTop="16dp"
             android:text="Name Bill"
             android:textSize="24sp"
+            android:textColor="#DF03082B"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,6 +33,7 @@
             android:layout_marginTop="8dp"
             android:text="Time"
             android:textSize="20sp"
+            android:textColor="#DF03082B"
             app:layout_constraintStart_toStartOf="@+id/nameBillData"
             app:layout_constraintTop_toBottomOf="@+id/nameBillData" />
 
@@ -43,6 +45,7 @@
             android:layout_marginBottom="16dp"
             android:text="$: 40000"
             android:textSize="24sp"
+            android:textColor="#DF03082B"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/nameBillData"
             app:layout_constraintTop_toBottomOf="@+id/timeBillData" />

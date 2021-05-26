@@ -34,6 +34,7 @@
             android:layout_marginLeft="16dp"
             android:text="Product"
             android:textSize="34sp"
+            android:textColor="#DF03082B"
             app:layout_constraintStart_toEndOf="@+id/imageProdData"
             app:layout_constraintTop_toTopOf="@+id/imageProdData" />
 
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:text="$: 400"
             android:textSize="24sp"
+            android:textColor="#DF03082B"
             app:layout_constraintBottom_toBottomOf="@+id/imageProdData"
             app:layout_constraintStart_toStartOf="@+id/nameProdData" />
 
@@ -55,6 +57,7 @@
             android:layout_marginRight="16dp"
             android:text="In Stock: 12"
             android:textSize="20sp"
+            android:textColor="#DF03082B"
             app:layout_constraintBottom_toBottomOf="@+id/pricProdData"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/nameProdData" />

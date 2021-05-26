@@ -3,9 +3,8 @@ package com.example.doan;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     apiUser serviceUser = service.retrofit.create(apiUser.class);
     sqlite db = new sqlite(LoginActivity.this, "bone_fish.sqlite", null, 1);
 
-    ImageButton registerBtn, loginBtn;
+    Button registerBtn, loginBtn;
     EditText emailLogin, passLogin;
     ProgressDialog progressDialog;
 
@@ -40,23 +39,29 @@ public class LoginActivity extends AppCompatActivity {
         emailLogin = findViewById(R.id.loginEmail);
         passLogin = findViewById(R.id.loginPassword);
 
-        registerBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this, RegisterActivity.class);
-            startActivity(intent);
-        });
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
 
-        loginBtn.setOnClickListener(v -> {
-            email = emailLogin.getText().toString().trim();
-            pass = passLogin.getText().toString().trim();
+        registerBtn.setOnClickListener(v -> CreateOrLogin(1));
 
-            CallUser(email,pass);
-            progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("Please wait...");
-            progressDialog.show();
-        });
+        loginBtn.setOnClickListener(v -> CreateOrLogin(0));
     }
 
-    private void CallUser(String email, String pass) {
+    private void CreateOrLogin(int i) {
+        email = emailLogin.getText().toString().trim();
+        pass = passLogin.getText().toString().trim();
+        if (!email.isEmpty() && !pass.isEmpty()) {
+            if (i==0) {
+                progressDialog.show();
+                loginUser(email, pass);
+            } else {
+                progressDialog.show();
+                createUser(email, pass);
+            }
+        } else showToast("Password or Email is empty");
+    }
+
+    private void loginUser(String email, String pass) {
         serviceUser.Login(email, pass).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -80,16 +85,35 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void createUser(String email, String pass) {
+        serviceUser.Register(email, pass).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    User user = response.body();
+                    if (user.getMessage()!=null){
+                        progressDialog.hide();
+                        showToast("Account already exists");
+                    } else {
+                        toMainActivity(user.getToken());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                showToast("Server error");
+            }
+        });
+    }
+
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     private void toMainActivity(String token) {
         Intent intent = new Intent(this, MainActivity.class);
-//        db.QueryData("DELETE FROM token");
-//        db.QueryData("DELETE FROM bill");
         db.QueryData("INSERT INTO token VALUES(null,'"+token+"')");
         startActivity(intent);
     }
-
 }

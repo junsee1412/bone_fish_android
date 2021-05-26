@@ -12,13 +12,15 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.doan.ListDataActivity;
-import com.example.doan.ProductActivity;
+import com.example.doan.intentforUser.AddBranCateActivity;
+import com.example.doan.intentforUser.AddProductActivity;
+import com.example.doan.intentforUser.ListDataActivity;
 import com.example.doan.R;
 import com.example.doan.SplashActivity1;
 import com.example.doan.api.apiUser;
 import com.example.doan.common.Service;
 import com.example.doan.common.sqlite;
+import com.example.doan.intentforUser.PasswordActivity;
 import com.example.doan.model.User;
 
 import retrofit2.Call;
@@ -34,10 +36,7 @@ public class tabUser extends Fragment {
     private Bundle bundle;
     private View view;
     private Context context;
-    private Button AlProduct, AdProduct,
-            AlBrand, AdBrand,
-            AlCategory, AdCategory,
-            AlBill, Password, logout;
+    private Button AlProduct, AdProduct, AlBrand, AdBrand, AlCategory, AdCategory, AlBill, Password, logout;
     private TextView username, useremail;
 
     @Override
@@ -97,18 +96,33 @@ public class tabUser extends Fragment {
         logout = view.findViewById(R.id.Logout);
 
         AlProduct.setOnClickListener(v -> toListDataActivity("Product"));
-        AdProduct.setOnClickListener(v -> {});
+        AdProduct.setOnClickListener(v -> {
+            Intent intent = new Intent(context, AddProductActivity.class);
+            intent.putExtra("token", token);
+            context.startActivity(intent);
+        });
 
         AlBrand.setOnClickListener(v -> toListDataActivity("Brand"));
-        AdBrand.setOnClickListener(v -> {});
+        AdBrand.setOnClickListener(v -> toAddBranCate("Brand"));
 
         AlCategory.setOnClickListener(v -> toListDataActivity("Category"));
-        AdCategory.setOnClickListener(v -> {});
+        AdCategory.setOnClickListener(v -> toAddBranCate("Category"));
 
         AlBill.setOnClickListener(v -> toListDataActivity("Bill"));
-        Password.setOnClickListener(v -> {});
+        Password.setOnClickListener(v -> {
+            Intent intent = new Intent(context, PasswordActivity.class);
+            intent.putExtra("token", token);
+            context.startActivity(intent);
+        });
 
         logout.setOnClickListener(v -> Logout());
+    }
+
+    private void toAddBranCate(String title) {
+        Intent intent = new Intent(context, AddBranCateActivity.class);
+        intent.putExtra("token", token);
+        intent.putExtra("title", title);
+        context.startActivity(intent);
     }
 
     private void toListDataActivity(String title) {

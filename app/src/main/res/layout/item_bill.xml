@@ -101,6 +101,8 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="3dp"
                 android:text="90"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
                 android:textColor="#D703082B"
                 android:textSize="24dp"
                 android:textStyle="bold" />

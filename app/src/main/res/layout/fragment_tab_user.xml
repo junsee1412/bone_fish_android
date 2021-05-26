@@ -11,10 +11,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="160dp"
         android:background="@drawable/usergb"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,183 +34,200 @@
 
         <TextView
             android:id="@+id/userName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:fontFamily="sans-serif-black"
             android:text="JUNSEE1412"
             android:textColor="#DF03082B"
             android:textSize="26dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/emailUser"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:text="junsee1412@game.net"
             android:textColor="#DF03082B"
-            app:layout_constraintStart_toStartOf="@+id/userName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userName" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView5"
-            android:layout_width="160dp"
-            android:layout_height="70dp"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="190dp"
-            android:layout_marginRight="190dp"
-            app:cardCornerRadius="15dp"
+            android:layout_marginEnd="220dp"
+            android:layout_marginRight="220dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailUser">
 
-            <Button
-                android:id="@+id/All_Product"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#EA80FC"
-                android:text="All Product"
-                app:backgroundTint="#EA80FC" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                app:cardCornerRadius="15dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView6"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="@+id/cardView5"
-            app:layout_constraintStart_toStartOf="@+id/cardView5"
-            app:layout_constraintTop_toBottomOf="@+id/cardView5">
+                <Button
+                    android:id="@+id/All_Product"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#EA80FC"
+                    android:text="All Product"
+                    app:backgroundTint="#EA80FC" />
+            </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/All_Brand"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#B388FF"
-                android:text="All Brand"
-                app:backgroundTint="#B388FF" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView6"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView7"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="@+id/cardView6"
-            app:layout_constraintStart_toStartOf="@+id/cardView6"
-            app:layout_constraintTop_toBottomOf="@+id/cardView6">
+                <Button
+                    android:id="@+id/All_Brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#B388FF"
+                    android:text="All Brand"
+                    app:backgroundTint="#B388FF" />
+            </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/All_Category"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#8C9EFF"
-                android:text="All Category"
-                app:backgroundTint="#8C9EFF" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView7"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView10"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="36dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/cardView7"
-            app:layout_constraintStart_toStartOf="@+id/cardView7"
-            app:layout_constraintTop_toBottomOf="@+id/cardView7">
+                <Button
+                    android:id="@+id/All_Category"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#8C9EFF"
+                    android:text="All Category"
+                    app:backgroundTint="#8C9EFF" />
+            </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/All_Bill"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FF8A80"
-                android:text="All Bill"
-                app:backgroundTint="#FF8A90" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView10"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="15dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView8"
-            android:layout_width="160dp"
+                <Button
+                    android:id="@+id/All_Bill"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FF8A80"
+                    android:text="All Bill"
+                    app:backgroundTint="#FF8A90" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="190dp"
-            android:layout_marginLeft="190dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/cardView5"
+            android:layout_marginStart="220dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cardView5">
+            app:layout_constraintTop_toTopOf="@+id/linearLayout">
 
-            <Button
-                android:id="@+id/Add_Product"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#E040FB"
-                android:text="Add Product"
-                app:backgroundTint="#E040FB" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView8"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                app:cardCornerRadius="15dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView9"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/cardView6"
-            app:layout_constraintEnd_toEndOf="@+id/cardView8"
-            app:layout_constraintStart_toStartOf="@+id/cardView8"
-            app:layout_constraintTop_toTopOf="@+id/cardView6">
+                <Button
+                    android:id="@+id/Add_Product"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#E040FB"
+                    android:text="Add Product"
+                    app:backgroundTint="#E040FB" />
+            </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/Add_Brand"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#7C4DFF"
-                android:text="Add Brand"
-                app:backgroundTint="#7C4DFF" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView9"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp"
+                tools:layout_editor_absoluteX="-25dp"
+                tools:layout_editor_absoluteY="532dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView11"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/cardView7"
-            app:layout_constraintEnd_toEndOf="@+id/cardView9"
-            app:layout_constraintStart_toStartOf="@+id/cardView9"
-            app:layout_constraintTop_toTopOf="@+id/cardView7">
+                <Button
+                    android:id="@+id/Add_Brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#7C4DFF"
+                    android:text="Add Brand"
+                    app:backgroundTint="#7C4DFF" />
+            </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/Add_Category"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#536DFE"
-                android:text="Add Category"
-                app:backgroundTint="#536DFE" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView11"
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/cardView10"
-            app:layout_constraintEnd_toEndOf="@+id/cardView11"
-            app:layout_constraintStart_toStartOf="@+id/cardView11"
-            app:layout_constraintTop_toTopOf="@+id/cardView10">
+                <Button
+                    android:id="@+id/Add_Category"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#536DFE"
+                    android:text="Add Category"
+                    app:backgroundTint="#536DFE" />
+            </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/Password"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#E40051"
-                android:text="Password"
-                app:backgroundTint="#F50057" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="160dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="15dp"
+                tools:layout_editor_absoluteX="-45dp"
+                tools:layout_editor_absoluteY="557dp">
+
+                <Button
+                    android:id="@+id/Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#E40051"
+                    android:text="Password"
+                    app:backgroundTint="#F50057" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -220,6 +237,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="32dp"
@@ -227,7 +245,8 @@
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <Button
             android:id="@+id/Logout"
