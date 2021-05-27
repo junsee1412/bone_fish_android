@@ -24,6 +24,8 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
+//    String url="https://bone-fish.herokuapp.com";
+    String url="http://192.168.1.23:3000";
 
     Context context;
     List<itemBill> bills;
@@ -48,7 +50,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
         holder.product.setText(item.getProduct());
         holder.quantity.setText(String.valueOf(item.getQuantity()));
         holder.price.setText(String.valueOf(item.getPrice()));
-        Picasso.get().load("http://192.168.1.23:3000"+item.getImage()).into(holder.imageBill);
+        Picasso.get().load(url+item.getImage()).into(holder.imageBill);
         holder.option.setOnClickListener(v -> {
             sqlite db = new sqlite(context, "bone_fish.sqlite", null, 1);
             PopupMenu popupMenu = new PopupMenu(context, v);

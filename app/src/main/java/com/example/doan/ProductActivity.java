@@ -25,6 +25,9 @@ import retrofit2.Response;
 import static java.lang.Integer.parseInt;
 
 public class ProductActivity extends AppCompatActivity {
+//    String url="https://bone-fish.herokuapp.com";
+        String url="http://192.168.1.23:3000";
+
     String token;
     sqlite db = new sqlite(this, "bone_fish.sqlite", null, 1);
     Cursor cursor;
@@ -57,7 +60,7 @@ public class ProductActivity extends AppCompatActivity {
         protxt.setText(prostr);
         pricetxt.setText(pricestr);
         qtytxt.setText(qtystr);
-        Picasso.get().load("http://192.168.1.23:3000"+imgstr).into(img);
+        Picasso.get().load(url+imgstr).into(img);
 
         back = findViewById(R.id.back2);
         edit = findViewById(R.id.btnEditPro);
