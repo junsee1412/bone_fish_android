@@ -38,6 +38,6 @@ public interface apiCategory {
     //delete Category
     @FormUrlEncoded
     @HTTP(method = "DELETE", path = "/api/category", hasBody = true)
-    Call<Category> delCategory(@Field("token") String token, @Field("id") String id);
+    Call<Category> delCategory(@Field("token") String token, @Field("idcategory") String id);
     //END CATEGORY
 }

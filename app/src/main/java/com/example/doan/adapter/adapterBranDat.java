@@ -108,6 +108,7 @@ public class adapterBranDat extends RecyclerView.Adapter<adapterBranDat.BrandDat
     public void RemoveItem(int p, String id){
         sqlite db = new sqlite(context, "bone_fish.sqlite", null, 1);
         db.QueryData("DELETE FROM bran WHERE id='"+id+"'");
+        System.out.println(id);
         brandList.remove(p);
         notifyDataSetChanged();
         serviceBra.delBrand(token, id).enqueue(new Callback<Brand>() {

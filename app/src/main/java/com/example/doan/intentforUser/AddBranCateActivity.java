@@ -65,7 +65,7 @@ public class AddBranCateActivity extends AppCompatActivity {
     private void addBC(String title) {
         tempBC = addBC.getText().toString();
         if (tempBC.isEmpty()){
-            Toast.makeText(this, "Input is Empty", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Input is Empty", Toast.LENGTH_SHORT).show();
         } else {
             if (title.equals("Brand")) {
                 serviceBrand.createBrand(token, tempBC).enqueue(new Callback<Brand>() {
@@ -73,19 +73,19 @@ public class AddBranCateActivity extends AppCompatActivity {
                     public void onResponse(Call<Brand> call, Response<Brand> response) {
                         if (response.isSuccessful()) {
                             Brand brand = response.body();
-                            System.out.println(brand.get_id());
+                            System.out.println(brand.getBrand());
                             db.QueryData("INSERT INTO bran (id, id_user, bran) VALUES(" +
                                     "'"+brand.get_id()+"'," +
                                     "'"+brand.getId_user()+"'," +
-                                    "'"+brand.getBrand()+"')");
-                            Toast.makeText(AddBranCateActivity.this, "Add Success", Toast.LENGTH_SHORT);
+                                    "'"+tempBC+"')");
+                            Toast.makeText(AddBranCateActivity.this, "Add Success", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Brand> call, Throwable t) {
-                        Toast.makeText(AddBranCateActivity.this, "Server Error", Toast.LENGTH_SHORT);
+                        Toast.makeText(AddBranCateActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
@@ -99,14 +99,14 @@ public class AddBranCateActivity extends AppCompatActivity {
                                     "'"+category.get_id()+"'," +
                                     "'"+category.getId_user()+"'," +
                                     "'"+category.getCategory()+"')");
-                            Toast.makeText(AddBranCateActivity.this, "Add Success", Toast.LENGTH_SHORT);
+                            Toast.makeText(AddBranCateActivity.this, "Add Success", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Category> call, Throwable t) {
-                        Toast.makeText(AddBranCateActivity.this, "Server Error", Toast.LENGTH_SHORT);
+                        Toast.makeText(AddBranCateActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

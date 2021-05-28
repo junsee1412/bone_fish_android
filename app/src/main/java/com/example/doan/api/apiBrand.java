@@ -36,5 +36,5 @@ public interface apiBrand {
     //delete Brand
     @FormUrlEncoded
     @HTTP(method = "DELETE", path = "/api/brand", hasBody = true)
-    Call<Brand> delBrand(@Field("token") String token, @Field("id") String id);
+    Call<Brand> delBrand(@Field("token") String token, @Field("idbrand") String id);
 }
