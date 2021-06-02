@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class BillActivity extends AppCompatActivity {
     private String id, token;
     private RecyclerView billDetailRecyclerView;
     private adapterBillDetail adapterBillDetail;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,9 @@ public class BillActivity extends AppCompatActivity {
         money = findViewById(R.id.PriceBillDetail);
         back = findViewById(R.id.imageView5);
         billDetailRecyclerView = findViewById(R.id.item_bill_recy);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
 
         back.setOnClickListener(v -> finish());
 
@@ -69,6 +74,7 @@ public class BillActivity extends AppCompatActivity {
             public void onResponse(Call<Bill> call, Response<Bill> response) {
                 if (response.isSuccessful()) {
                     Bill bill = response.body();
+                    progressDialog.hide();
                     setData(bill.getBill(), bill.getTime(), bill.getItems());
                 }
             }

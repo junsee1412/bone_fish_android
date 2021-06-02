@@ -2,6 +2,7 @@ package com.example.doan.intentforUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class AddBranCateActivity extends AppCompatActivity {
     private EditText addBC;
     private Button cancle, change;
     private String token, titleStr, tempBC;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class AddBranCateActivity extends AppCompatActivity {
         if (tempBC.isEmpty()){
             Toast.makeText(this, "Input is Empty", Toast.LENGTH_SHORT).show();
         } else {
+            dialogProgress();
             if (title.equals("Brand")) {
                 serviceBrand.createBrand(token, tempBC).enqueue(new Callback<Brand>() {
                     @Override
@@ -78,6 +81,8 @@ public class AddBranCateActivity extends AppCompatActivity {
                                     "'"+brand.get_id()+"'," +
                                     "'"+brand.getId_user()+"'," +
                                     "'"+tempBC+"')");
+
+                            progressDialog.hide();
                             Toast.makeText(AddBranCateActivity.this, "Add Success", Toast.LENGTH_SHORT).show();
                             finish();
                         }
@@ -85,6 +90,7 @@ public class AddBranCateActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Brand> call, Throwable t) {
+                        progressDialog.hide();
                         Toast.makeText(AddBranCateActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -99,6 +105,7 @@ public class AddBranCateActivity extends AppCompatActivity {
                                     "'"+category.get_id()+"'," +
                                     "'"+category.getId_user()+"'," +
                                     "'"+category.getCategory()+"')");
+                            progressDialog.hide();
                             Toast.makeText(AddBranCateActivity.this, "Add Success", Toast.LENGTH_SHORT).show();
                             finish();
                         }
@@ -106,10 +113,16 @@ public class AddBranCateActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Category> call, Throwable t) {
+                        progressDialog.hide();
                         Toast.makeText(AddBranCateActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         }
+    }
+    private void dialogProgress() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.show();
     }
 }

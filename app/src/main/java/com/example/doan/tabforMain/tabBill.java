@@ -141,6 +141,7 @@ public class tabBill extends Fragment {
                     Bill bill = response.body();
                     String mess = bill.getMessage();
                     if (mess.equals("cannot create")) {
+                        progressDialog.hide();
                         Toast.makeText(context, "Cannot Create Bill", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(context, "Create Bill Success", Toast.LENGTH_LONG).show();

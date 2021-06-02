@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -55,6 +56,8 @@ public class ListDataActivity extends AppCompatActivity {
     private List<Category> categoryList;
     private List<Product> productList;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,7 @@ public class ListDataActivity extends AppCompatActivity {
         dataRecyclerView = findViewById(R.id.data_recy);
         back = findViewById(R.id.imageView5);
         title = findViewById(R.id.Title);
+        progressDialog = new ProgressDialog(this);
 
         back.setOnClickListener(v -> finish());
 
@@ -127,6 +131,8 @@ public class ListDataActivity extends AppCompatActivity {
     }
 
     private void showRecyBill() {
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         dataRecyclerView.setLayoutManager(layoutManager);
         serviceBill.getlistBill(token).enqueue(new Callback<List<Bill>>() {
@@ -134,6 +140,7 @@ public class ListDataActivity extends AppCompatActivity {
             public void onResponse(Call<List<Bill>> call, Response<List<Bill>> response) {
                 if (response.isSuccessful()) {
                     billList = response.body();
+                    progressDialog.hide();
                     adapterBillDat = new adapterBillDat(billList, ListDataActivity.this);
                     dataRecyclerView.setAdapter(adapterBillDat);
                 }
@@ -141,6 +148,7 @@ public class ListDataActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Bill>> call, Throwable t) {
+                progressDialog.hide();
                 Toast.makeText(ListDataActivity.this, "Server Error", Toast.LENGTH_SHORT);
             }
         });
