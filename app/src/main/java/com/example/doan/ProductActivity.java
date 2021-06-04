@@ -25,8 +25,8 @@ import retrofit2.Response;
 import static java.lang.Integer.parseInt;
 
 public class ProductActivity extends AppCompatActivity {
-//    String url="https://bone-fish.herokuapp.com";
-        String url="http://192.168.1.23:3000";
+    String url="https://bone-fish.herokuapp.com";
+//        String url="http://192.168.1.23:3000";
 
     String token;
     sqlite db = new sqlite(this, "bone_fish.sqlite", null, 1);

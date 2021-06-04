@@ -24,8 +24,8 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemHolder> {
-//    String url="https://bone-fish.herokuapp.com";
-    String url="http://192.168.1.23:3000";
+    String url="https://bone-fish.herokuapp.com";
+//    String url="http://192.168.1.23:3000";
 
     Context context;
     List<itemBill> bills;

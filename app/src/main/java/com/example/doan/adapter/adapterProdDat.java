@@ -19,6 +19,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class adapterProdDat extends RecyclerView.Adapter<adapterProdDat.ProdDatHolder> {
+        String url="https://bone-fish.herokuapp.com";
+//    String url="http://192.168.1.23:3000";
 
     private List<Product> productList;
     private Context context;
@@ -41,7 +43,7 @@ public class adapterProdDat extends RecyclerView.Adapter<adapterProdDat.ProdDatH
         holder.product.setText(product.getProduct());
         holder.price.setText(String.valueOf(product.getPrice()));
         holder.stock.setText(String.valueOf(product.getStock()));
-        Picasso.get().load("http://192.168.1.23:3000"+product.getImg()).into(holder.img);
+        Picasso.get().load(url+product.getImg()).into(holder.img);
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ProductActivity.class);
